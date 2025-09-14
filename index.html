@@ -1,6 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-NTLNZMWP1J"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+
+      gtag('config', 'G-NTLNZMWP1J');
+    </script>
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AI Experience Starter Kit</title>
@@ -13,7 +28,7 @@
 
       body {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: linear-gradient(135deg, #2d8bba 0%, #2d8bba 100%);
         min-height: 100vh;
         display: flex;
         align-items: center;
@@ -40,7 +55,7 @@
       .robot-icon {
         width: 80px;
         height: 80px;
-        background: linear-gradient(45deg, #4caf50, #2196f3);
+        background: linear-gradient(45deg, #ff4141, #fdb600);
         border-radius: 50%;
         margin: 0 auto 20px;
         display: flex;
@@ -111,11 +126,11 @@
         content: '🤖';
         position: absolute;
         left: 0;
-        top: 0;
+        top: 2px;
       }
 
       .download-section {
-        background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+        background: linear-gradient(45deg, #ff4141, #fdb600);
         color: white;
         padding: 25px;
         border-radius: 15px;
@@ -192,14 +207,13 @@
 
     <script>
       function downloadFile() {
-        // Replace 'your-pdf-file.pdf' with the actual path to your PDF file
         const link = document.createElement('a');
-        link.href = 'ai-experience-starter-kit.pdf'; // Update this with your actual PDF file path
-        link.download = 'AI-Experience-Starter-Kit-for-Families.pdf';
+        link.href =
+          'https://drive.google.com/uc?export=download&id=1IPmicOaLbdtd5YRUFI9CAQJX6qOt18lO'; // Update this with your actual PDF file path
 
         document.body.appendChild(link);
         link.click();
-        // document.body.removeChild(link);
+        document.body.removeChild(link);
       }
     </script>
   </body>
