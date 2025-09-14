@@ -205,7 +205,13 @@
       <div class="download-section">
         <h3>Ready to Start Your AI Journey?</h3>
         <p>Download your free starter kit and begin exploring together!</p>
-        <a href="#" class="download-btn" onclick="downloadFile()">
+        <a
+          href="https://drive.google.com/uc?export=download&id=1IPmicOaLbdtd5YRUFI9CAQJX6qOt18lO"
+          class="download-btn"
+          data-ga-event="true"
+          data-ga-label="PDF Kit Download"
+          data-ga-category="Download"
+        >
           📥 Download PDF Kit
         </a>
       </div>
@@ -218,15 +224,28 @@
     </div>
 
     <script>
-      function downloadFile() {
-        const link = document.createElement('a');
-        link.href =
-          'https://drive.google.com/uc?export=download&id=1IPmicOaLbdtd5YRUFI9CAQJX6qOt18lO'; // Update this with your actual PDF file path
+      document.addEventListener('DOMContentLoaded', () => {
+        const downloadLinks = document.querySelectorAll(
+          '.download-btn[data-ga-event="true"]'
+        );
 
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-      }
+        downloadLinks.forEach((link) => {
+          link.addEventListener('click', (event) => {
+            // Get the custom data attributes
+            const gaCategory = link.getAttribute('data-ga-category');
+            const gaLabel = link.getAttribute('data-ga-label');
+
+            // Send a custom event to Google Analytics
+            if (typeof gtag === 'function') {
+              gtag('event', 'custom_download', {
+                event_category: gaCategory,
+                event_label: gaLabel,
+                file_url: link.href,
+              });
+            }
+          });
+        });
+      });
     </script>
   </body>
 </html>
